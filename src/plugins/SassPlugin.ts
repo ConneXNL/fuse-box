@@ -1,6 +1,7 @@
 import { File } from "../File";
 import { WorkFlowContext } from "../WorkflowContext";
 import { Plugin } from "../WorkflowContext";
+import { Config } from "../Config";
 
 let sass;
 
@@ -32,6 +33,17 @@ export class SassPluginClass implements Plugin {
             sourceMap: true,
             outFile: file.info.fuseBoxPath,
             sourceMapContents: true,
+            importer: function(url, file, done) {
+                let object;
+
+                if( url[0] === '~' ) {
+                    object = { file: Config.NODE_MODULES_DIR + "/" + url.substr(1) };
+                } else {
+                    object = { file: url };
+                }
+
+                return done( object );
+            },
         }, this.options);
 
         options.includePaths = [];

@@ -6,6 +6,7 @@ import { utils } from "realm-utils";
 import * as fs from "fs";
 import { PostCSSResourcePlugin } from "../lib/postcss/PostCSSResourcePlugin";
 import { SVG2Base64 } from "../lib/SVG2Base64";
+import { Config } from "../Config";
 const base64Img = require("base64-img");
 const postcss = require("postcss");
 const IMG_CACHE = {};
@@ -114,6 +115,7 @@ export class CSSResourcePluginClass implements Plugin {
 
         return postcss([PostCSSResourcePlugin({
             fn: (url) => {
+                if (url.length > 0 && url[0] === "~") url = Config.NODE_MODULES_DIR + "/" + url.substr(1);
                 let urlFile = path.resolve(currentFolder, url);
                 urlFile = urlFile.replace(/[?\#].*$/, "");
                 if (this.inlineImages) {

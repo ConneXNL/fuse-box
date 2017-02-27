@@ -114,6 +114,7 @@ export class CSSResourcePluginClass implements Plugin {
 
         return postcss([PostCSSResourcePlugin({
             fn: (url) => {
+                //if (url.length > 0 && url[0] === "~") url = [resolved path...]
                 let urlFile = path.resolve(currentFolder, url);
                 urlFile = urlFile.replace(/[?\#].*$/, "");
                 if (this.inlineImages) {

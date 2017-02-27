@@ -1,5 +1,5 @@
 import { createEnv } from '../../test-stubs/TestEnvironment';
-import { CSSPlugin } from './CSSplugin';
+import { CSSPlugin } from './CSSPlugin';
 import { should } from "fuse-test-runner";
 import * as path from 'path';
 import * as appRoot from 'app-root-path';

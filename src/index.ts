@@ -11,7 +11,7 @@ export { SVGPlugin } from "./plugins/images/SVGPlugin";
 export { BabelPlugin } from "./plugins/js-transpilers/BabelPlugin";
 export { CoffeePlugin } from "./plugins/js-transpilers/CoffeePlugin";
 export { LESSPlugin } from "./plugins/stylesheet/LESSPlugin";
-export { CSSPlugin } from "./plugins/stylesheet/CSSplugin";
+export { CSSPlugin } from "./plugins/stylesheet/CSSPlugin";
 export { HTMLPlugin } from "./plugins/HTMLplugin";
 export { JSONPlugin } from "./plugins/JSONplugin";
 export { BannerPlugin } from "./plugins/BannerPlugin";

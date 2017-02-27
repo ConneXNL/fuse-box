@@ -34,6 +34,17 @@ export class SassPluginClass implements Plugin {
             sourceMap: true,
             outFile: file.info.fuseBoxPath,
             sourceMapContents: true,
+            /*importer: function(url, importerFile, done) {
+                let object;
+
+                if( url[0] === '~' ) {
+                    object = { file: file.collection.pm.resolve("~/" + url.substr(1)) };
+                } else {
+                    object = { file: url };
+                }
+
+                return done( object );
+            }*/
         }, this.options);
 
         options.includePaths = [];
